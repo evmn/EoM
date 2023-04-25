@@ -1,4 +1,5 @@
 import random
+import time
 
 def get_header():
     user_agents = [ 
@@ -9,3 +10,6 @@ def get_header():
         "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0"
         ]
     return {"User-Agent": random.choice(user_agents)}
+
+def sleep_random_seconds(minValue, maxValue):
+    time.sleep(random.randint(minValue, maxValue))

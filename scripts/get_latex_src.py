@@ -3,9 +3,7 @@ import traceback
 from bs4 import BeautifulSoup
 from datetime import datetime
 import sqlite3
-import time
-from random import randint
-from random_header import get_header
+from random_utils import get_header, sleep_random_seconds
 import re
 
 headers = get_header()
@@ -72,19 +70,18 @@ def main():
                 print(title, href, latex_link)
                 latex_content = scrape_latex(latex_link)
     
-                time.sleep(randint(3, 5))
                 insert_data(conn, (eid, latex_link, latex_content))
-                time.sleep(randint(3, 5))
+
                 item_number += 1
             except Exception:
                 traceback.print_exc()
                 print("\n\t\nError: ", title, href)
-                time.sleep(randint(10, 30))
+                sleep_random_seconds(10, 30)
                 pass
+            sleep_random_seconds(5, 10)
             if item_number % 10 == 0:
                 print(item_number)
-                conn.commit()
-                time.sleep(randint(3, 4))
+                sleep_random_seconds(10, 40)
     
     conn.close()
 if __name__ == '__main__':

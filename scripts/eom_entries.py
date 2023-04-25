@@ -3,12 +3,8 @@ from datetime import datetime
 import requests
 import sqlite3
 import random
-import time
 import re
-from random_header import get_header
-
-def sleep_random_seconds(minValue, maxValue):
-    time.sleep(random.randint(minValue, maxValue))
+from random_utils import get_header, sleep_random_seconds
 
 def setup_database():
     now=datetime.now()
