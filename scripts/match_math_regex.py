@@ -1,22 +1,35 @@
 import re
 
-text = '''
+'''
 $$
-W  =  \left \|
+( x , y )  \leq   F ( x) G ( y)
 $$
-other chare
+other contents, shouldn't be matched
 $$
-\right \| .
+r t - s  ^ {2}  =  \phi ( p , q )
 $$
 '''
-with open('math.tex', 'r') as file:
-    content = file.read()
-    pattern = r'\$\$(?:[^$]|(?<=\\)\$)+\$\$'
-    matches = re.findall(pattern, content)
-    length = {}
+def match_math_equations(input_file):
+    with open(input_file, 'r') as file:
+        content = file.read()
+        pattern = r'\$\$(?:[^$]|(?<=\\)\$)+\$\$'
+        matches = re.findall(pattern, content)
+
+        return matches
+
+def main():
+    input_file = 'entries.txt'
+    matches = match_math_equations(input_file)
     
+    match_length = {}
+
     for i, match in enumerate(matches):
-        length[i] = len(match)
-    sorted_dict = dict(sorted(length.items(), key=lambda item: item[1]))
-    for k, v in sorted_dict.items():
+        match_length[i] = len(match)
+    sorted_match = dict(sorted(match_length.items(), key=lambda item: item[1]))
+    for k, v in sorted_match.items():
         print(matches[int(k)])
+    total_match = len(matches)
+    print(f"There are {total_match} matches!")
+
+if __name__ == '__main__':
+    main()
