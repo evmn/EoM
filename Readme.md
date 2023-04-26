@@ -16,10 +16,10 @@ id|name
 9764|[Weierstrass zeta-function](https://encyclopediaofmath.org/wiki/Weierstrass_zeta-function)
 
 
-There are 26895 math formulas in Display Style, which are enclosed by double dollar. There are several complicated expressions in [Distribution fitting by using the mean of distances of empirical data](https://encyclopediaofmath.org/wiki/Distribution_fitting_by_using_the_mean_of_distances_of_empirical_data).
+There are 26895 math formulas in **Display Style**, which are enclosed by double dollar. There are several complicated expressions in [Distribution fitting by using the mean of distances of empirical data](https://encyclopediaofmath.org/wiki/Distribution_fitting_by_using_the_mean_of_distances_of_empirical_data).
 
 ![](images/Distribution_fitting_by_using_the_mean_of_distances_of_empirical_data/tag12.svg)
 
-The are some errors in the arrays of [Fraser diagram](https://encyclopediaofmath.org/wiki/Fraser_diagram), bug I have fixed it.
+The are some errors in the arrays of [Fraser diagram](https://encyclopediaofmath.org/wiki/Fraser_diagram), and I have fixed them.
 
 ![](images/Fraser_diagram/array.svg)
