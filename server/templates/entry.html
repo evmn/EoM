@@ -18,6 +18,7 @@
 </script>
 </head>
 <body>
+	<script src="{{ url_for('static', filename='parse_ref.js') }}"></script>
     <h1>{{ entry[1] }}</h1>
     <div>{{ latex[3] | safe }}</div>
     <a href="{{ url_for('table_of_contents') }}">Back to Table of Contents</a>

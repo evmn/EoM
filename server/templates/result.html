@@ -8,7 +8,7 @@
 
     <ul>
     {% for result in results %}
-		<li><a href="{{ url_for('show_entry', entry_id=result[0]) }}">{{ result[1] }}</a></li>
+		<li><a href="{{ url_for('show_entry', entry_id=result[2][6:]) }}">{{ result[1] }}</a></li>
     {% endfor %}
     </ul>
 

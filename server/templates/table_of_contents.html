@@ -9,7 +9,7 @@
     <h1>Table of Contents</h1>
     <ul>
         {% for entry in entries %}
-            <li><a href="{{ url_for('show_entry', entry_id=entry[0]) }}">{{ entry[1] }}</a></li>
+            <li><a href="{{ url_for('show_entry', entry_id=entry[2][6:]) }}">{{ entry[1] }}</a></li>
         {% endfor %}
     </ul>
 </body>

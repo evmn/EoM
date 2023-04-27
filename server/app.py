@@ -34,13 +34,14 @@ def table_of_contents():
 
     return render_template('table_of_contents.html', entries=entries)
 
-@app.route('/entry/<int:entry_id>')
+@app.route('/entry/<string:entry_id>')
 def show_entry(entry_id):
     # Fetch data from the 'entry' and 'latex' tables
     cursor = create_connection()
-    cursor.execute("SELECT * FROM entry WHERE id=? and redirect=0", (entry_id,))
+    entry_id = '/wiki/' + entry_id
+    cursor.execute("SELECT * FROM entry WHERE url=? and redirect=0", (entry_id,))
     entry = cursor.fetchone()
-    cursor.execute("SELECT * FROM latex WHERE eid=?", (entry_id,))
+    cursor.execute("SELECT * FROM latex WHERE eid=?", (entry[0],))
     latex = cursor.fetchone()
 
     return render_template('entry.html', entry=entry, latex=latex)
@@ -53,7 +54,7 @@ def search():
     if request.method == 'POST':
         search_query = request.form['search_query']
         search_query = "%" + search_query + "%"
-        cursor.execute("SELECT id, name FROM entry WHERE lower(name) LIKE lower(?)", (search_query,))
+        cursor.execute("SELECT * FROM entry WHERE lower(name) LIKE lower(?)", (search_query,))
         results = cursor.fetchall()
         if results:
             return render_template('result.html', results=results)
@@ -64,7 +65,7 @@ def search():
 def random_page():
     # Get a random page from the list
     cursor = create_connection()
-    cursor.execute("SELECT id FROM entry WHERE redirect=0 order by random() limit 1")
+    cursor.execute("SELECT substr(url, 7) FROM entry WHERE redirect=0 order by random() limit 1")
     entry_id = cursor.fetchone()
     
     # Return the page as a template
