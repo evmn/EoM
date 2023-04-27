@@ -32,3 +32,15 @@ The project has achieved the following goals:
  - Browse random entry
  - Search entry title(case insensitive)
  - Display math equation with MathJax
+
+Copy [database](https://t.me/master_thyself/1408) to *db/* folder, run local server with:
+
+```sh
+cd server/
+python app.py
+```
+
+![](images/server/index.jpg)
+![](images/server/ade.jpg)
+![](images/server/search_laplace.jpg)
+
