@@ -38,6 +38,8 @@ Copy [database](https://t.me/master_thyself/1408) to *db/* folder, run local ser
 ```sh
 cd server/
 python app.py
+# or with the following command
+#python -m flask run --host=0.0.0.0
 ```
 
 ![](images/server/index.jpg)
