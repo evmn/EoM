@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, abort
 import random
 import sqlite3
 
@@ -45,10 +45,20 @@ def show_entry(entry_id):
 
     return render_template('entry.html', entry=entry, latex=latex)
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def search():
     # Implement your search functionality here
-    return "Search Results Page"
+
+    cursor = create_connection()
+    if request.method == 'POST':
+        search_query = request.form['search_query']
+        search_query = "%" + search_query + "%"
+        cursor.execute("SELECT id, name FROM entry WHERE lower(name) LIKE lower(?)", (search_query,))
+        results = cursor.fetchall()
+        if results:
+            return render_template('result.html', results=results)
+        else:
+            abort(404)
 
 @app.route('/random')
 def random_page():

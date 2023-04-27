@@ -7,8 +7,9 @@
 </head>
 <body>
     <h1>Welcome!</h1>
-    <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Search...">
+    <form action="/search" method="POST">
+		<label for="search_query">Search:</label>
+        <input type="text" id="search_query" name="search_query">
         <button type="submit">Search</button>
     </form>
     <nav>
