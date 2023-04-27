@@ -23,3 +23,12 @@ There are 26895 math formulas in **Display Style**, which are enclosed by double
 The are some errors in the arrays of [Fraser diagram](https://encyclopediaofmath.org/wiki/Fraser_diagram), and I have fixed them.
 
 ![](images/Fraser_diagram/array.svg)
+
+## Local Server of EoM
+
+The project has achieved the following goals:
+
+ - List table of contents
+ - Browse random entry
+ - Search entry title(case insensitive)
+ - Display math equation with MathJax
